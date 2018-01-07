@@ -8,6 +8,7 @@ package hibernacija;
 import entities.Klub;
 import java.util.Scanner;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -20,9 +21,14 @@ public class Hibernacija {
      */
     public static void main(String[] args) {
         Session s = Engine.getSession();
+        Transaction trans = s.beginTransaction();
         
         Klub klub = (Klub)s.get(Klub.class, 3);
         System.out.println(klub);
+        
+        s.update(klub);
+        
+        trans.commit();
         
        /* Klub klub =  new Klub();
         klub.drzava = "Spanija";
