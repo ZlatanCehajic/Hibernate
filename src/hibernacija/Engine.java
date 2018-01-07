@@ -5,11 +5,18 @@
  */
 package hibernacija;
 
+import org.hibernate.Session;
+
 /**
  *
  * @author ZLATAN
  */
 public class Engine {
+    private static Session sesija = null;
+    public static Session getSession(){
+        
+        
+    }
     
     
     
